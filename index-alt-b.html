@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fundo alternativo B — teste</title>
+<meta name="description" content="Aula de inglês individual, feita para a sua cabeça: uma hora por semana, material personalizado e zero cobrança de ritmo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b10;
+    --bg-soft: #14141b;
+    --line: #24242e;
+    --ink: #f2f0ea;
+    --ink-muted: #a9a7b8;
+    --green: #2fb98a;
+    --purple: #7c6cf0;
+    --orange: #ff8a3d;
+    --radius: 14px;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3 { font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 16px; }
+  h1, h2 { font-family: "Pirata One", "Lexend", serif; font-weight: 400; letter-spacing: 0; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; }
+  h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.1; }
+  h3 { font-size: 1.1rem; font-weight: 500; }
+  p { margin: 0 0 16px; }
+  a { color: var(--green); }
+  strong { font-weight: 500; }
+
+  /* divisor mercurial: linha fina com o glifo */
+  .rule {
+    display: flex; align-items: center; gap: 18px;
+    color: var(--ink-muted); margin: 0 auto; max-width: var(--max); padding: 0 24px;
+  }
+  .rule::before, .rule::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+  .rule span { font-size: 1.35rem; letter-spacing: 0.3em; line-height: 1; color: var(--purple); opacity: 0.85; }
+
+  section { padding: 72px 0; }
+
+  /* ---------- topo ---------- */
+  .hero { padding: 56px 0 40px; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-block; font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px;
+  }
+  .hero h1 { margin-bottom: 22px; text-wrap: pretty; }
+  .hero h1 em {
+    font-style: normal; color: var(--green);
+    box-shadow: inset 0 -0.45em 0 rgba(47, 185, 138, 0.14);
+  }
+  .lead { font-size: 1.12rem; color: var(--ink-muted); max-width: 46ch; }
+
+  .vagas {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 16px; font-size: 0.88rem; color: var(--ink-muted);
+    margin: 8px 0 26px;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex: 0 0 7px; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn {
+    display: inline-block; padding: 15px 28px; border-radius: 999px;
+    background: var(--green); color: #05231a; font-weight: 500;
+    text-decoration: none; font-size: 1rem; min-height: 48px;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .btn:hover { background: #3cd39d; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--ink); border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { background: var(--bg-soft); transform: none; }
+
+  .hero-photo { position: relative; justify-self: center; }
+  .hero-photo img {
+    width: 100%; max-width: 380px; display: block; position: relative; z-index: 1;
+    border-radius: 22px; border: 1px solid var(--line);
+    aspect-ratio: 0.86 / 1; object-fit: cover;
+  }
+  .hero-photo::before {
+    content: ""; position: absolute; inset: -8% -14% -12% -14%;
+    background: radial-gradient(circle at 50% 42%, rgba(124, 108, 240, 0.22), transparent 68%);
+    filter: blur(60px); z-index: 0;
+  }
+
+  /* ---------- é / não é (dualidade) ---------- */
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .duo > div { padding: 34px 32px; }
+  .duo > div:first-child { border-right: 1px solid var(--line); background: rgba(47, 185, 138, 0.045); }
+  .duo > div:last-child { background: rgba(124, 108, 240, 0.045); }
+  .duo h3 { margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .duo h3 .mark { font-weight: 400; }
+  .duo .sim h3 .mark { color: var(--green); }
+  .duo .nao h3 .mark { color: var(--purple); }
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  ul.plain li { position: relative; padding-left: 22px; margin-bottom: 12px; color: var(--ink-muted); }
+  ul.plain li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 1px; background: var(--line); }
+  .duo .sim ul.plain li::before { background: var(--green); opacity: 0.6; }
+  .duo .nao ul.plain li::before { background: var(--purple); opacity: 0.6; }
+
+  /* ---------- como funciona ---------- */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  .card {
+    background: var(--bg-soft); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 24px;
+  }
+  .card h3 { margin-bottom: 10px; }
+  .card p { color: var(--ink-muted); margin: 0; font-size: 0.98rem; }
+  .card .num {
+    font-size: 0.78rem; letter-spacing: 0.2em; color: var(--orange);
+    text-transform: uppercase; display: block; margin-bottom: 14px;
+  }
+
+  .note {
+    margin-top: 24px; padding: 20px 24px; border-left: 1px solid var(--orange);
+    background: rgba(255, 138, 61, 0.05); color: var(--ink-muted);
+    border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.98rem;
+  }
+
+  /* ---------- preço ---------- */
+  .price-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .price {
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 32px;
+  }
+  .price .big { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+  .price .big small { font-size: 0.95rem; font-weight: 300; color: var(--ink-muted); letter-spacing: 0; }
+  .price dl { margin: 22px 0 0; }
+  .price dt { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-top: 16px; }
+  .price dd { margin: 4px 0 0; }
+  .tag {
+    display: inline-block; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--ink-muted); margin-top: 20px;
+  }
+
+  /* ---------- quem sou ---------- */
+  .about { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 44px; align-items: center; }
+  .about img { width: 100%; max-width: 320px; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+  .about p { color: var(--ink-muted); }
+  .about p strong { color: var(--ink); }
+
+  /* ---------- mini-lição ---------- */
+  .free {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(124,108,240,0.07), transparent 70%);
+    padding: 38px; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 32px; align-items: center;
+  }
+  .free h2 { margin-bottom: 12px; }
+  .free p { color: var(--ink-muted); margin-bottom: 0; }
+
+  /* ---------- faq ---------- */
+  details {
+    border-bottom: 1px solid var(--line); padding: 18px 0;
+  }
+  details summary {
+    cursor: pointer; font-weight: 500; color: var(--ink); list-style: none;
+    display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+    min-height: 32px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; color: var(--green); font-weight: 300; font-size: 1.3rem; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--ink-muted); margin: 12px 0 0; max-width: 68ch; }
+
+  /* ---------- fechamento ---------- */
+  .close { text-align: center; padding: 88px 0 96px; }
+  .close h2 { max-width: 24ch; margin: 0 auto 18px; }
+  .close p { color: var(--ink-muted); max-width: 52ch; margin: 0 auto 30px; }
+  .close .actions { justify-content: center; }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 28px 0 40px;
+    color: var(--ink-muted); font-size: 0.86rem;
+  }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------- responsivo ---------- */
+  @media (max-width: 880px) {
+    .hero-grid, .price-wrap, .about, .free { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; justify-self: start; }
+    .hero-photo img { max-width: 240px; }
+    .cards { grid-template-columns: 1fr; }
+    .duo { grid-template-columns: 1fr; }
+    .duo > div:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    section { padding: 56px 0; }
+  }
+
+  /* --- fundo alternativo B: mais denso --- */
+  body{
+    background-image: url("deco-alt-b.svg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: 700px 700px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Aulas individuais · online</span>
+      <h1>Inglês do seu jeito: aula feita para a <em>sua cabeça</em>, não para um aluno ideal.</h1>
+      <p class="lead">Aulas de 1h, online, no seu ritmo — de quem nunca estudou a quem já entende bastante e trava na hora de falar. O foco é o mesmo: fazer você falar com confiança.</p>
+      <div class="vagas"><span class="dot"></span> 4 vagas abertas</div>
+      <div class="actions">
+        <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="jaque.jpg" alt="Jaque, professora de inglês">
+    </div>
+  </div>
+</header>
+
+<div class="rule"><span>☿</span></div>
+
+<section id="para-quem">
+  <div class="wrap">
+    <h2>Antes de qualquer coisa: é para você?</h2>
+    <p class="lead" style="margin-bottom:34px">Prefiro dizer isso de cara do que descobrir na terceira aula.</p>
+    <div class="duo">
+      <div class="sim">
+        <h3><span class="mark">✓</span> É para você se…</h3>
+        <ul class="plain">
+          <li>quer começar do zero, e começar bem</li>
+          <li>já estudou inglês e travou no meio do caminho</li>
+          <li>tem TDAH, dislexia ou ansiedade e aprende de um jeito que a escola não deu conta</li>
+          <li>quer falar desde a primeira aula, mesmo errando</li>
+          <li>quer uma pessoa fixa, que acompanha o seu ritmo semana a semana</li>
+          <li>quer falar de temas políticos e sociais que permeiam a sua vida em aula</li>
+          <li>quer uma prof anticapitalista, que não reproduz o imperialismo típico do inglês dos EUA</li>
+        </ul>
+      </div>
+      <div class="nao">
+        <h3><span class="mark">✕</span> Não é para você se…</h3>
+        <ul class="plain">
+          <li>procura turma grande — trabalho com turma pequena, e no momento não há turma aberta</li>
+          <li>quer uma prof que não se interesse pela sua vida e pelos detalhes que te tornam quem você é — e pelo que você quer se tornar, porque o inglês pode ser um caminho disso</li>
+          <li>espera prova e boletim, como na escola</li>
+          <li>espera um método pronto, igual para todo mundo</li>
+          <li>quer resultado sem fazer nada entre uma aula e outra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <h2>Como funciona</h2>
+    <p class="lead">Uma hora por semana, online, com ementa própria — nada de livro de curso seguido página por página.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Aula de 1 hora, online</h3>
+        <p>Encontro ao vivo, com foco no que você precisa destravar primeiro. Falo inglês desde a primeira aula — sem forçar.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Material personalizado</h3>
+        <p>Feito de acordo com as suas necessidades, objetivos e interesses pessoais. Todo o material — livros de apoio, música, vídeos e jogos — está incluído no valor.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Semanas sem aula também contam</h3>
+        <p>Atividades para as semanas sem encontro, planejadas para o seu objetivo — não dever de casa genérico.</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>E tem uma coisa que quase ninguém ensina:</strong> como usar IA para estudar de forma eficiente — como pedir, o que revisar e o que não delegar.
+    </div>
+  </div>
+</section>
+
+<section id="focos">
+  <div class="wrap">
+    <h2>Além de fazer você falar com confiança</h2>
+    <p class="lead">O foco principal é sempre o mesmo: sair da aula conseguindo usar o inglês. Mas há objetivos específicos que eu atendo com material próprio.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="num">Provas</span>
+        <h3>Preparação para exames de proficiência</h3>
+        <p>Treino das quatro habilidades com provas anteriores, formato do exame e estratégia de tempo — sem decorar resposta pronta.</p>
+      </div>
+      <div class="card">
+        <span class="num">Viagem</span>
+        <h3>Inglês para viajar</h3>
+        <p>Aeroporto, hotel, restaurante, imprevisto. O inglês que resolve o dia a dia de quem vai viajar.</p>
+      </div>
+      <div class="card">
+        <span class="num">Trabalho</span>
+        <h3>Inglês corporativo</h3>
+        <p>Reunião, e-mail, apresentação e conversa com colega de outro país — com o vocabulário da sua área, não o genérico do livro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="preco">
+  <div class="wrap price-wrap">
+    <div>
+      <h2>Preço e condições</h2>
+      <p class="lead">Sem matrícula, sem taxa de adesão e sem pacote anual obrigatório.</p>
+      <div class="note" style="margin-top:26px">
+        <strong>Turma em grupo: fechada no momento.</strong> As vagas de turma vão depender da minha
+        disponibilidade em 2027 — não consigo garantir nada agora. Mas quem entrar na lista de interesse é
+        convidado primeiro.<br><br>
+        <a href="https://tinyurl.com/2cah8h4n" target="_blank" rel="noopener">Entrar na lista de interesse em turmas →</a>
+      </div>
+      <div class="actions" style="margin-top:26px">
+        <a class="btn" href="https://wa.me/5511959305906?text=Oi%2C%20Jaque!%20Quero%20agendar%20uma%20aula%20teste.">Agendar aula teste</a>
+      </div>
+    </div>
+    <div class="price">
+      <div class="big">R$ 115 <small>/ hora</small></div>
+      <dl>
+        <dt>Pacote mínimo</dt>
+        <dd>2 horas por mês — <strong>R$ 230</strong>, no Pix ou no cartão pelo Mercado Pago</dd>
+        <dt>Pagamento</dt>
+        <dd>Antes da primeira aula do mês. Não cobro matrícula.</dd>
+        <dt>Remarcação</dt>
+        <dd>Avisando com até 3 horas de antecedência. Falta sem aviso conta como aula dada.</dd>
+        <dt>Recesso</dt>
+        <dd>Duas últimas semanas de dezembro e duas primeiras de janeiro.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="rule"><span>☿</span></div>
+
+<section id="quem-sou">
+  <div class="wrap about">
+    <div><img src="jaque.jpg" alt="Jaque" style="border-radius:22px;border:1px solid var(--line);aspect-ratio:0.86/1;object-fit:cover;max-width:300px"></div>
+    <div>
+      <h2>Quem sou</h2>
+      <p>Sou a Jaque. <strong>Ensino inglês há 15 anos</strong>, estudo tecnologia e escrevo nas horas que sobram.</p>
+      <p>Sou mãe, neurodivergente e não binária, e isso muda a aula na prática: instrução curta, uma coisa por vez, e nenhuma cobrança de ritmo que não seja o seu.</p>
+      <p>Sou ativista, e isso também aparece em sala — ninguém aqui é tratado como incapaz, e o inglês não vem separado do mundo em que a gente vive.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gratis">
+  <div class="wrap">
+    <div class="free">
+      <div>
+        <h2>Mini-lição grátis: por que você entende inglês e trava na hora de falar</h2>
+        <p>Um resumo do que eu vejo em quase toda aula: não é falta de talento nem de memória — é sobrecarga. São cinco estratégias para continuar a conversa com o inglês que você já tem.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="mini-licao.html">Ver a mini-lição</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <div style="margin-top:28px">
+      <details>
+        <summary>Preciso saber alguma coisa de inglês para começar?</summary>
+        <p>Não. Tem gente que chega sem lembrar o verbo <em>to be</em> e gente que chega com nível intermediário travado na fala. O ponto de partida é o seu.</p>
+      </details>
+      <details>
+        <summary>Como é a aula teste?</summary>
+        <p>É aberta, sem compromisso e sem pagamento. A gente conversa sobre o seu objetivo, o que já estudou e o que te atrapalha, e faz uma aula de verdade — você tem todo o direito de ver se gosta antes de fechar.</p>
+      </details>
+      <details>
+        <summary>O material está incluso?</summary>
+        <p>Sim. Eu monto o material de cada aula e trabalho com livros de apoio em PDF, sem custo extra para você. Música, vídeos e jogos entram quando fazem sentido.</p>
+      </details>
+      <details>
+        <summary>E se eu precisar desmarcar?</summary>
+        <p>Pode, avisando com até 3 horas de antecedência. Falta sem aviso conta como aula dada.</p>
+      </details>
+      <details>
+        <summary>E se eu quiser fazer mais que 2 horas por mês?</summary>
+        <p>Pode. Cada hora a mais custa R$ 115. Acima de 5 aulas no mês tem desconto — me chama no WhatsApp que a gente combina o valor.</p>
+      </details>
+      <details>
+        <summary>Posso separar o pacote em aulas mais curtas, tipo 4 aulas de 30 minutos?</summary>
+        <p>Não. A minha aula é de 1 hora — é o tempo de revisar, praticar e ainda sobrar conversa. O que dá para ajustar é a frequência das aulas, dentro do pacote mínimo de 2 horas por mês.</p>
+      </details>
+      <details>
+        <summary>Como funciona o pagamento?</summary>
+        <p>Aula avulsa R$ 115. Pacote mínimo de 2 horas por mês: R$ 230, no Pix ou no cartão pelo Mercado Pago, pago antes da primeira aula do mês. Não cobro matrícula.</p>
+      </details>
+      <details>
+        <summary>Você atende quem tem TDAH, dislexia ou ansiedade?</summary>
+        <p>Sim, e a aula muda por causa disso: instrução curta, uma coisa por vez, apoio à mão e zero cobrança de ritmo. Eu também sou neurodivergente — não trato isso como problema a corrigir.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Ainda tenho 4 vagas este mês.</h2>
+    <p>Se você acha que eu posso ser a sua próxima prof, marca a aula teste e a gente conversa.</p>
+    <div class="actions">
+      <a class="btn" href="https://wa.me/5511959305906?text=Oi%2C%20Jaque!%20Quero%20agendar%20uma%20aula%20teste.">Agendar aula teste</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Prof. Jaque · aulas individuais de inglês</span>
+    <span>Feito com carinho e sem pressa.</span>
+  </div>
+</footer>
+
+</body>
+</html>
